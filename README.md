@@ -18,6 +18,8 @@ docker-compose up --build
 
 Apache Airflow will be available at https://localhost:8080 (credentials are `airflow` as user and password). A single DAG will be available, representing the proposed processing pipeline.
 
+> PS: When using the web interface, select "Trigger DAG w/ config" and pass the contents of `./dags/pipeline-config.json` as configuration JSON for the DAG to run. The configuration includes the path of a temporal folder, the output folder for the models, and the paths of the source data.
+
 
 ---
 
