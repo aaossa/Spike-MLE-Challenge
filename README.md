@@ -18,6 +18,8 @@ docker-compose up --build
 
 Apache Airflow will be available at http://localhost:8080 (credentials are `airflow` as user and password). A single DAG will be available, representing the proposed processing pipeline.
 
+> PS: When using the web interface, select "Trigger DAG w/ config" and pass the contents of `./dags/pipeline-config.json` as configuration JSON for the DAG to run. The configuration includes the path of a temporal folder, the output folder for the models, and the paths of the source data.
+
 
 ### Querying the API
 
@@ -68,3 +70,14 @@ if __name__ == '__main__':
     # {'prediction': [244.54084431277155, 171.87887865792788]}
 
 ```
+
+
+---
+
+### Notes to reviewers
+
+First of all, I loved the challenge. Even if it was not that complex at first, it was a nice opportunity for me to try and learn Apache Airflow to create the pipeline. I spent a lot of time trying to make it work inside a Docker container and when I was finally done, I did not have much time left to write the API. Fortunetely, I'm familiar with Flask so mounting that service, the endpoint and querying the models was not that hard, but that part was completed after the deadline (https://github.com/aaossa/Spike-MLE-Challenge/pull/4).
+
+With a couple more hours of time, I would have tried to make sure that the repository structure made sense for others. For example, not all of the services are mounted at the same level (Apache Airflow is mounted at root level, but the API is a single folder of the repository). Also, the pipeline could be improved, but I'm not sure if the tasks are too atomic. I tried to translate the ideas of the Data Scientist directly from the notebook to the processing pipeline.
+
+Anyways, thank you for the opportunity. It was a really fun exercise and I already learned a lot while working on this repository.
