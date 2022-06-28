@@ -17,7 +17,7 @@ POLY = [1, 2, 3, 5, 7]
 def train_model(model_name, columns_criteria=None, verbose=0, dag_run=None, **kwargs):
     X_train, y_train = load_dataframe("X_train", "y_train", src=dag_run.conf.get("tmp_path"))
 
-    if columns_criteria:
+    if columns_criteria is not None:
         columns = [col for col in X_train.columns if columns_criteria(col)]
         X_train = X_train[columns]
 
@@ -35,4 +35,4 @@ def train_model(model_name, columns_criteria=None, verbose=0, dag_run=None, **kw
     )
     grid.fit(X_train, y_train)
 
-    save_model(model_name, grid, dst=dag_run.conf.get("tmp_path"))
+    save_model(model_name, grid, dst=dag_run.conf.get("dst_path"))

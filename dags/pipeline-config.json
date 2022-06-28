@@ -1,5 +1,6 @@
 {
   "tmp_path": "/tmp/",
+  "dst_path": "/opt/production/",
   "macroeconomic_data_path": "/opt/airflow/data/banco_central.csv",
   "milk_price_data_path": "/opt/airflow/data/precio_leche.csv",
   "rainfall_data_path": "/opt/airflow/data/precipitaciones.csv"
